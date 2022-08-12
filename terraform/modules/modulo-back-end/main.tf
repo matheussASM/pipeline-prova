@@ -1,5 +1,5 @@
 module "backend" {
-  source = "../ec2-module"
+  source = "../modulo-ec2"
   count = var.app_instances_count
   ec2_tags = {
     "Name" = "Back-end-${count.index}"
@@ -7,7 +7,7 @@ module "backend" {
 }
 
 module "database" {
-  source = "../rds-module" 
+  source = "../modulo-rds" 
   count = var.app_instances_count
   db_tags = {
     "Name" = "${var.db_name}-${count.index}"
