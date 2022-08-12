@@ -4,3 +4,4 @@ resource "aws_instance" "app" {
   tags = {
     Name = "terraform-prova"
   }
+}

@@ -13,17 +13,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
-module "front-end"{
-  source = "./modules/modulo-ec2"
-
+module "front-end" {
+  source = "./modules/modulo-front-end"
+  front_instances_count=1
 }
 
-module "api"{
-  source = "./modules/modulo-ec2"
-  
-}
-
-module "rds"{
-  source = "./modules/modulo-ec2"
-  
+module "back-end" {
+  source = "./modules/modulo-back-end"
+  db_name = "customers"
+  app_instances_count = 1
 }
