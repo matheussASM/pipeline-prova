@@ -13,10 +13,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "app" {
-  ami = "ami-0729e439b6769d6ab"
-  instance_type = "t2.micro"
-  tags = {
-    Name = "terraform-prova"
-  }
+module "front-end"{
+  source = "./modules/modulo-ec2"
+
+}
+
+module "api"{
+  source = "./modules/modulo-ec2"
+  
+}
+
+module "rds"{
+  source = "./modules/modulo-ec2"
+  
 }
